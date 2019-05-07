@@ -1,0 +1,9 @@
+<div class="imageContainer">
+  <div class="row">
+    <div *ngFor="let image of images" [routerLink]="image?.link" class="column">
+      <div class="linkContainer">
+        <p class="linkText">{{image?.caption}}</p>
+        <img [src]="image?.src" [alt]="image?.caption" style="width:100%" class="linkImage">
+      </div>
+  </div>
+</div>

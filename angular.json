@@ -26,7 +26,7 @@
               "src/assets/styles/w3.css",
               "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": [],
+            "scripts": [ ],
             "es5BrowserSupport": true
           },
           "configurations": {
