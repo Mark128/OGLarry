@@ -1,11 +1,12 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
   <a routerLink="/OGLarryDesigns" class="navbar-brand"><img src="../../../assets/imgs/tray4.jpg" height="60px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+
+  <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a routerLink="/OriginalOG" routerLinkActive="active" class="nav-link">Original OG</a>
       </li>
@@ -19,17 +20,17 @@
           <a routerLink="/OGAshtrays" routerLinkActive="active" class="nav-link">OG Ashtrays</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-         <fa name="instagram"></fa>
+    
+    <ul class="navbar-nav">
+      <li class="nav-item">
+         <fa class="faIcon" name="instagram"></fa>
       </li>
-      <li>
-          <fa name="instagram"></fa>
+      <li class="nav-item">
+          <fa class="faIcon" name="facebook"></fa>
        </li>
-       <li>
-          <fa name="instagram"></fa>
+       <li class="nav-item">
+          <fa class="faIcon" name="envelope"></fa>
        </li>
-    </ul>
-  
+    </ul>  
   </div>
 </nav>
