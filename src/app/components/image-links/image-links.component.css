@@ -1,14 +1,19 @@
 .linkContainer{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 15px;
+    text-align: center;  
+    margin-left:1%;
+    margin-right:1%; 
+    margin-top:2%;
 }
 
 .linkText{
     text-align: center;
 }
 
-.linkImage{
-    margin-left: 2px;
-    margin-right: 2px;
+.imageContainer{
+    margin-top:5%;
 }
+
+.col-sm-3{
+    margin-top: 5%;
+}
+

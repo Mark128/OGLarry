@@ -1,3 +1,6 @@
-body  { 
-    background-color: white; 
+body {
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/oglarry.appspot.com/o/dark_wood.png?alt=media&token=412813ce-b40a-484e-86c6-aad5465d6738");
+    background-size: 100% 100%;
+
+  color: white;
 }

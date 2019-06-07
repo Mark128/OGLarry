@@ -1,0 +1,7 @@
+<div class="card border-light mb-6" (click)="goToDetailPage()">
+  <div class="card-img" [ngStyle]="{'background-image': 'url(' + tray.mainImg + ')'}"></div>
+  <div class="card-img-overlay d-flex flex-column justify-content-between">
+    <h4 class="card-title">{{tray.name}}</h4>
+    <p class="card-text">{{tray.shortDescription}}</p>
+  </div>
+</div>

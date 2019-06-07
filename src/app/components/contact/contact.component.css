@@ -1,0 +1,31 @@
+.formContainer{
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1em black;
+}
+
+.header{
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.form-label{
+    margin-top:  5%;
+    margin-left: 1%;
+}
+
+.form-check{
+    margin-left: 1%;
+}
+
+.form-control{
+    margin-left: 10px;
+    margin-right:10px;
+    margin-top: 5px;
+    width: 98%
+}
+
+.submitButton{
+    margin-left: 1%;
+}

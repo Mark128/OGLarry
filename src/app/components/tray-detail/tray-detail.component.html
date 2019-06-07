@@ -1,0 +1,40 @@
+<div class="trayContainer"></div>
+<div class="card card-1 col-md-6 border-light mb-3">
+  <h2 class="card-title">{{tray?.name}}</h2>
+  <mdb-carousel class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+    <mdb-carousel-item *ngFor="let image of tray?.images">
+      <img class="d-block w-100" [src]="image" [alt]="tray?.name">
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+  <div class="card-body">
+    <div class="card-text">
+      <p id="description">{{ tray?.fullDescription }}</p>
+    </div>
+  </div>
+  <ul class="list-group ">
+    <li class="list-group-item">
+      <span>
+        <fa class="cardIcon" name="tree" size="2x"></fa>
+        Wood Type: {{tray?.woodType}}
+      </span>
+    </li>
+    <li class="list-group-item">
+        <span>
+          <fa class="cardIcon" name="expand" size="2x"></fa>
+          Dimensions: {{tray?.dimensions}}
+        </span>
+      </li>
+      <li class="list-group-item">
+          <span>
+            <fa class="price" name="dollar-sign" size="2x"></fa>
+            {{ priceLabel}}: {{tray?.price | currency}}
+          </span>
+        </li>
+  </ul>
+  <div class="card-body">
+    <button class="btn btn-primary btn-block" (click)="purchaseTray(tray?.id)">
+      Buy
+    </button>
+  </div>
+</div>

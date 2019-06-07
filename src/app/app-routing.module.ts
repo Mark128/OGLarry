@@ -6,15 +6,19 @@ import { AshtraysComponent } from './components/ashtrays/ashtrays.component';
 import { CustomComponent } from './components/custom/custom.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+import { TrayDetailComponent } from './components/tray-detail/tray-detail.component';
+import { RandomComponent } from './components/random/random.component';
 
 const routes: Routes = [
   {path: 'OGLarryDesigns', component: HomeComponent},
   {path: 'OriginalOG', component: OriginalOGComponent},
   {path: 'MiniOG', component: MiniOGComponent},
   {path: 'OGAshtrays', component: AshtraysComponent},
-  {path: 'CustomOG', component: CustomComponent}, 
+  {path: 'CustomOG', component: CustomComponent},
   {path: 'Contact', component: ContactComponent},
-  {path: '', redirectTo: "/OGLarryDesigns", pathMatch: 'full'}
+  {path: '1OFF', component: RandomComponent},
+  {path: 'TrayDetail/:name', component: TrayDetailComponent},
+  {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}
 ];
 
 @NgModule({

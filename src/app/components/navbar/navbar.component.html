@@ -1,36 +1,35 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top custom-navbar">
-  <a routerLink="/OGLarryDesigns" class="navbar-brand"><img src="../../../assets/imgs/tray4.jpg" height="60px"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color" [containerInside]="false">
+  <mdb-navbar-brand><a routerLink="/OGLarryDesigns" ><img src="../../../assets/imgs/tray4.jpg" height="60px"></a></mdb-navbar-brand>
+  <links class="links">
       <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a routerLink="/OriginalOG" routerLinkActive="active" class="nav-link">Original OG</a>
+      <li *ngIf="navigationLinks?.OriginalOG.showLink" class="nav-item">
+        <a routerLink="/OriginalOG" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>{{navigationLinks?.OriginalOG.linkName}}</a>
       </li>
-      <li class="nav-item active">
-          <a routerLink="/OrigiMiniOGnalOG" routerLinkActive="active" class="nav-link">Mini OG</a>
+      <li *ngIf="navigationLinks?.MiniOG.showLink" class="nav-item">
+          <a routerLink="/MiniOG" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>{{navigationLinks?.MiniOG.linkName}}</a>
       </li>
-      <li class="nav-item active">
-          <a routerLink="/CustomOG" routerLinkActive="active" class="nav-link">Custom OG</a>
+      <li *ngIf="navigationLinks?.CustomOG.showLink" class="nav-item">
+          <a routerLink="/CustomOG" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>{{navigationLinks?.CustomOG.linkName}}</a>
       </li>
-      <li class="nav-item active">
-          <a routerLink="/OGAshtrays" routerLinkActive="active" class="nav-link">OG Ashtrays</a>
+      <li *ngIf="navigationLinks?.OGAshtrays.showLink" class="nav-item">
+          <a routerLink="/OGAshtrays" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>{{navigationLinks?.OGAshtrays.linkName}}</a>
+      </li>
+      <li *ngIf="navigationLinks?.OneOff.showLink" class="nav-item">
+          <a routerLink="/1OFF" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>{{navigationLinks?.OneOff.linkName}}</a>
       </li>
     </ul>
-    
+
     <ul class="navbar-nav">
-      <li class="nav-item">
-         <fa class="faIcon" name="instagram"></fa>
+      <li *ngIf="navigationLinks?.showInstagram" class="nav-item" mdbWavesEffect>
+        <a [href]="navigationLinks?.instagramLink" class="nav-link waves-light"><fa class="faIcon" [size]="size" name="instagram"></fa></a>
       </li>
-      <li class="nav-item">
-          <fa class="faIcon" name="facebook"></fa>
-       </li>
-       <li class="nav-item">
-          <fa class="faIcon" name="envelope"></fa>
-       </li>
-    </ul>  
-  </div>
-</nav>
+      <li *ngIf="navigationLinks?.showFacebook" class="nav-item" mdbWavesEffect>
+          <a [href]="navigationLinks?.facebookLink" class="nav-link waves-light"><fa class="faIcon" [size]="size" name="facebook"></fa></a>
+      </li>
+      <li *ngIf="navigationLinks?.showContact" class="nav-item" mdbWavesEffect>
+        <a class="nav-link waves-light"><fa class="faIcon" [size]="size" name="envelope" routerLink="/Contact"></fa></a>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

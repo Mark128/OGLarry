@@ -1,9 +1,9 @@
-
-
-<carousel></carousel>
-<div class="heading">
-  <h2 id="name">{{companyName}}</h2>
-  <h4 id="slogan">{{companySlogan}}</h4>
+<!--<carousel></carousel>-->
+<div class="container">
+  <div class="heading">
+    <h1 id="name">{{ companyInfo?.companyName }}</h1>
+    <h4 id="slogan">{{ companyInfo?.companySlogan }}</h4>
+  </div>
+  <div class="description">{{ companyInfo?.companyDescription }}</div>
+  <image-links></image-links>
 </div>
-<!--<div class="description">{{companyDescription}}</div>-->
-<image-links></image-links>
