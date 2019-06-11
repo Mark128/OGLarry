@@ -21,8 +21,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ImageLinksComponent } from './components/image-links/image-links.component';
 import { TrayDetailComponent } from './components/tray-detail/tray-detail.component';
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
-import { RandomComponent } from './components/random/random.component';
 import { FirebaseModule } from './firebase/firebase.module';
+import { OneOffComponent } from './components/oneOff/oneOff.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { FirebaseModule } from './firebase/firebase.module';
     ImageLinksComponent,
     TrayDetailComponent,
     ProductThumbnailComponent,
-    RandomComponent
+    OneOffComponent
   ],
   imports: [
     BrowserModule,

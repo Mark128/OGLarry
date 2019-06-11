@@ -3,51 +3,117 @@
 
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
     <span class="form-label">What is your name?</span>
-    <input type="text" class="form-control" placeholder="What's your name?" formControlName="name">
-    <br>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="What's your name?"
+      formControlName="name"
+      required
+    />
+    <div *ngIf="contactForm.controls.name.invalid && (contactForm.controls.name.dirty || contactForm.controls.name.touched)" class="alert alert-danger">
+      <div *ngIf="contactForm.controls.name.errors.required">Your name is required</div>
+    </div>
+    <br />
     <span class="form-label">What's your email?</span>
-    <input type="text" class="form-control" placeholder="What's your email?" formControlName="email">
-    <br>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="What's your email?"
+      formControlName="email"
+      required
+      email
+    />
+    <div *ngIf="contactForm.controls.email.invalid && (contactForm.controls.email.dirty || contactForm.controls.email.touched)" class="alert alert-danger">
+      <div *ngIf="contactForm.controls.email.errors.required">Your email is required</div>
+      <div *ngIf="contactForm.controls.email.errors.email">Your email is not valid</div>
+    </div>
+    <br />
     <span class="form-label">What's your numba?</span>
-    <input type="text" class="form-control" placeholder="What's yo numba?" formControlName="phone">
-    <br>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="What's yo numba?"
+      formControlName="phone"
+    />
+    <br />
     <span class="form-label">What kind of wood do you want?</span>
     <select class="form-control" formControlName="woodType">
-      <option value="" disable selected> Select the type of wood for your tray</option>
-      <option *ngFor="let wood of woodTypes" [value]="wood">{{wood}}</option>
+      <option value="" disable selected>
+        Select the type of wood for your tray</option
+      >
+      <option *ngFor="let wood of woodTypes" [value]="wood">{{ wood }}</option>
     </select>
-    <br>
+    <br />
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="trayTextCheckbox" [(ngModel)]="isTextChecked"
-        [ngModelOptions]="{standalone: true}">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="trayTextCheckbox"
+        [(ngModel)]="isTextChecked"
+        [ngModelOptions]="{ standalone: true }"
+      />
       <label class="form-check-label" for="trayTextCheckbox">
         Do you want text on your tray?
       </label>
     </div>
     <div *ngIf="isTextChecked">
-      <br>
+      <br />
       <span class="form-label">What text do you want on your tray?</span>
-      <input type="text-area" class="form-control" placeholder="What text do you want on your tray?"
-        formControlName="trayText">
-      <br>
+      <input
+        type="text-area"
+        class="form-control"
+        placeholder="What text do you want on your tray?"
+        formControlName="trayText"
+      />
+      <div *ngIf="contactForm.controls.trayText.invalid && (contactForm.controls.trayText.dirty || contactForm.controls.trayText.touched)" class="alert alert-danger">
+        <div *ngIf="contactForm.controls.trayText.errors.required">Required</div>
+      </div>
+      <br/>
     </div>
 
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="trayLogoCheckbox" [(ngModel)]="isLogoChecked"
-        [ngModelOptions]="{standalone: true}">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="trayLogoCheckbox"
+        [(ngModel)]="isLogoChecked"
+        [ngModelOptions]="{ standalone: true }"
+      />
       <label class="form-check-label" for="trayLogoCheckbox">
         Do you want a logo on your tray?
       </label>
     </div>
     <div *ngIf="isLogoChecked">
-      <br>
-      <span class="form-label">What logo do you want on your tray?</span>
-      <input type="file" class="form-control" formControlName="trayLogo">
+      <br />
+      <div *ngIf="currentFileUpload" class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          attr.aria-valuenow="{{ progress.percentage }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: progress.percentage + '%' }"
+        >
+          {{ progress.percentage }}%
+        </div>
+      </div>
+
+      <label>
+        <input type="file" (change)="selectFile($event)" class="form-control"/>
+      </label>
+      <button
+        class="btn btn-success"
+        [disabled]="!selectedFiles"
+        (click)="upload()"
+      >
+        Upload
+      </button>
     </div>
-    <br>
+    <br />
     <div class="submitButton">
       <button type="submit" class="btn btn-primary">Contact</button>
     </div>
   </form>
-
 </div>

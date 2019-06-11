@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/Services/firebase.service';
 
 @Component({
   selector: 'ashtrays',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AshtraysComponent implements OnInit {
 
-  constructor() { }
+  trays;
+  constructor(private fb: FirebaseService) { }
 
   ngOnInit() {
+    this.fb.getAshtrays().subscribe( trayData => {
+      this.trays = trayData;
+    });
   }
 
 }

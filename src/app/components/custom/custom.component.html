@@ -1,3 +1,12 @@
-<p>
-  custom works!
-</p>
+<div class="pageHeader">
+  <h2>Custom OG</h2>
+  <h4>OG Larry's Custom Work</h4>
+</div>
+
+<div class="productContainer">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let tray of trays">
+      <product-thumbnail [tray]="tray"></product-thumbnail>
+    </div>
+  </div>
+</div>

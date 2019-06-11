@@ -1,6 +1,8 @@
 .trayContainer {
   margin-top: 5%;
   display: block;
+  max-width: 100%;
+  width:100%;
 }
 
 .title{
@@ -28,6 +30,8 @@
   margin-right: auto;
   width: 45rem;
   color: black;
+  max-width: 60%;
+  width:60%;
 }
 
 .card-img-top {
@@ -36,7 +40,9 @@
 
 .carousel {
   margin-top:10%;
+
 }
+
 
 .cardIcon{
   margin-right: 15px;

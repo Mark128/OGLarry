@@ -26,6 +26,13 @@
     width: 98%
 }
 
+.alert{
+  margin-left: 10px;
+  margin-right:10px;
+  margin-top: 2px;
+  width: 98%
+}
+
 .submitButton{
     margin-left: 1%;
 }

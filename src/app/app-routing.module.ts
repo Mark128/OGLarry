@@ -7,7 +7,8 @@ import { CustomComponent } from './components/custom/custom.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { TrayDetailComponent } from './components/tray-detail/tray-detail.component';
-import { RandomComponent } from './components/random/random.component';
+import { OneOffComponent } from './components/oneOff/oneOff.component';
+
 
 const routes: Routes = [
   {path: 'OGLarryDesigns', component: HomeComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: 'OGAshtrays', component: AshtraysComponent},
   {path: 'CustomOG', component: CustomComponent},
   {path: 'Contact', component: ContactComponent},
-  {path: '1OFF', component: RandomComponent},
+  {path: '1OFF', component: OneOffComponent},
   {path: 'TrayDetail/:name', component: TrayDetailComponent},
   {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}
 ];
