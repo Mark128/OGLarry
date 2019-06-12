@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/Services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
+// tslint:disable-next-line: component-selector
   selector: 'custom',
   templateUrl: './custom.component.html',
   styleUrls: ['./custom.component.css']
@@ -10,7 +12,7 @@ export class CustomComponent implements OnInit {
 
   trays;
 
-  constructor(private fb: FirebaseService) { }
+  constructor(private fb: FirebaseService, private router: Router) { }
 
   ngOnInit() {
     this.fb.getCustomTrays().subscribe( trayData => {
@@ -18,4 +20,7 @@ export class CustomComponent implements OnInit {
     });
   }
 
+  requestCustomTray() {
+    this.router.navigate(['/CustomContact']);
+  }
 }

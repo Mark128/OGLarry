@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FileUpload } from 'src/app/data/FileUpload';
 import { FirebaseService } from 'src/app/Services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
 // tslint:disable-next-line: component-selector
@@ -28,18 +29,19 @@ export class ContactComponent implements OnInit {
   progress: { percentage: number } = { percentage: 0 };
 
 
-  constructor(private fb: FormBuilder, private firebase: FirebaseService) { }
+  constructor(private fb: FormBuilder, private firebase: FirebaseService, private router: Router) { }
 
   ngOnInit() {
     this.contactForm = this.fb.group({
       name:  ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       phone: [''],
       woodType: [''],
       trayTextRequested: [false],
-      trayText: ['', Validators.required],
+      trayText: [''],
       trayLogoRequested: [false],
-      trayLogo: ['']
+      trayLogo: [''],
+      submissionDate: [new Date(Date.now())]
     });
   }
 
@@ -71,6 +73,10 @@ export class ContactComponent implements OnInit {
     }
 
     this.firebase.addCustomTrayRequest(contactDetails);
+  }
+
+  cancel() {
+    this.router.navigate(['/OGLarryDesigns']);
   }
 
 }

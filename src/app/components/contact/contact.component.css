@@ -36,3 +36,11 @@
 .submitButton{
     margin-left: 1%;
 }
+
+.invalid{
+  margin-left: 10px;
+  margin-right:10px;
+  margin-top: 5px;
+  width: 98%;
+  color: red;
+}

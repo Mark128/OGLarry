@@ -23,6 +23,8 @@ import { TrayDetailComponent } from './components/tray-detail/tray-detail.compon
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
 import { FirebaseModule } from './firebase/firebase.module';
 import { OneOffComponent } from './components/oneOff/oneOff.component';
+import { SendemailComponent } from './components/sendemail/sendemail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { OneOffComponent } from './components/oneOff/oneOff.component';
     ImageLinksComponent,
     TrayDetailComponent,
     ProductThumbnailComponent,
-    OneOffComponent
+    OneOffComponent,
+    SendemailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { OneOffComponent } from './components/oneOff/oneOff.component';
     FormsModule,
     AngularFontAwesomeModule,
     FirebaseModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot(),
     SlickModule.forRoot()
   ],

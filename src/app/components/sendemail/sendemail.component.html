@@ -1,0 +1,81 @@
+<div class="formContainer">
+  <h2 class="header">Contact OGLarry</h2>
+</div>
+
+<form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+  <span class="form-label">What is your name?</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="What's your name?"
+    formControlName="name"
+    required
+  />
+  <div
+    *ngIf="
+      contactForm.controls.name.invalid &&
+      (contactForm.controls.name.dirty || contactForm.controls.name.touched)
+    "
+    class="invalid"
+  >
+    <div *ngIf="contactForm.controls.name.errors.required">
+      Your name is required
+    </div>
+  </div>
+  <br />
+  <span class="form-label">What's your email?</span>
+  <input
+    type="email"
+    class="form-control"
+    placeholder="What's your email?"
+    formControlName="email"
+    required
+    email
+  />
+  <div
+    *ngIf="
+      contactForm.controls.email.invalid &&
+      (contactForm.controls.email.dirty || contactForm.controls.email.touched)
+    "
+    class="invalid"
+  >
+    <div *ngIf="contactForm.controls.email.errors.required">
+      Your email is required
+    </div>
+    <div *ngIf="contactForm.controls.email.errors.email">
+      Your email is not valid
+    </div>
+  </div>
+  <br />
+  <span class="form-label">What is the subject of your email?</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Enter Subject?"
+    formControlName="subject"
+    required
+  />
+  <div
+    *ngIf="
+      contactForm.controls.subject.invalid &&
+      (contactForm.controls.subject.dirty || contactForm.controls.subject.touched)
+    "
+    class="invalid"
+  >
+    <div *ngIf="contactForm.controls.subject.errors.required">
+      Subject is required
+    </div>
+  </div>
+  <br />
+  <span class="form-label">Enter email text below:</span>
+  <textarea
+    row ="10"
+    cols="50"
+    type="text-field"
+    class="form-control"
+    placeholder="Enter your text"
+    formControlName="text"
+  > Enter your email </textarea>
+  <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Send Your Email</button>
+  <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
+</form>

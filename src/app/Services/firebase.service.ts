@@ -10,6 +10,15 @@ import { ITray } from '../data/tray';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/storage';
 import { FileUpload } from '../data/FileUpload';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  }),
+  observe: 'response' as 'body'
+};
 
 @Injectable({
   providedIn: 'root'
@@ -59,7 +68,7 @@ export class FirebaseService {
 
   snapshot: any;
 
-  constructor(private afs: AngularFirestore, private db: AngularFireDatabase) {}
+  constructor(private afs: AngularFirestore, private db: AngularFireDatabase, private http: HttpClient) {}
 
   // Navigation Info
   getNavigationInfo() {
@@ -140,7 +149,7 @@ export class FirebaseService {
       .collection('CustomRequests')
       .add(requestDetails)
       .then(docRef => {
-        console.log('Document written with ID: ', docRef.id);
+        console.log('Document written');
       })
       .catch(error => {
         console.error('Error adding document: ', error);
@@ -197,5 +206,51 @@ export class FirebaseService {
 
   private saveFileData(fileUpload: FileUpload) {
     this.db.list(`${this.basePath}/`).push(fileUpload);
+  }
+
+  // Emailer
+  sendMail(emailInput) {
+
+    const url = 'https://us-central1-oglarry.cloudfunctions.net/httpEmail';
+    const emailParams = new HttpParams();
+    const emailHeaders = new HttpHeaders();
+    emailHeaders.append('Content-Type', 'application/json');
+    emailHeaders.append('Access-Control-Allow-Origin', '*');
+
+    console.log(emailInput.value);
+
+    emailParams.set('to', 'm_antoniadis@live.com');
+    emailParams.set('from', emailInput.value.email);
+    emailParams.set('subject', emailInput.value.subject);
+    emailParams.set('text',  emailInput.value.text);
+    emailParams.set('html', `
+    <html>
+      <p>${emailInput.value.text}</p>
+    </html>`);
+
+    const body = {
+      to: 'm_antoniadis@live.com',
+      from: emailInput.value.email, /** replace 'example@gmail.com' with a working email address, I simply sent an email to myself. */
+      subject: emailInput.value.subject,
+      text: emailInput.value.text,
+      html: `
+      <html>
+        <p>${emailInput.value.text}</p>
+      </html>`
+    };
+
+    console.log(emailParams.getAll);
+
+    return this.http.post(url, body, {
+        headers: emailHeaders,
+        params: emailParams
+      })
+      .toPromise()
+      .then(res => {
+        console.log('sent');
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }
