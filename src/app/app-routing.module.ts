@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TrayDetailComponent } from './components/tray-detail/tray-detail.component';
 import { OneOffComponent } from './components/oneOff/oneOff.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
+import { CanDeactivateGuard } from './can-deactivate.guard';
 
 
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path: 'MiniOG', component: MiniOGComponent},
   {path: 'OGAshtrays', component: AshtraysComponent},
   {path: 'CustomOG', component: CustomComponent},
-  {path: 'CustomContact', component: ContactComponent, pathMatch: 'full'},
-  {path: 'ContactOGLarry', component: SendemailComponent, pathMatch: 'full'},
+  {path: 'CustomContact', component: ContactComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
+  {path: 'ContactOGLarry', component: SendemailComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
   {path: '1OFF', component: OneOffComponent},
   {path: 'TrayDetail/:name', component: TrayDetailComponent},
   {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}

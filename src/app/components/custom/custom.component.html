@@ -1,15 +1,29 @@
-<div class="pageHeader">
-  <h2>Custom OG</h2>
-  <h4>OG Larry's Custom Work</h4>
-</div>
-<div>
-  <button class="btn btn-primary" (click)="requestCustomTray()">Request Custom Tray</button>
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="pageHeader">
+      <h2>Custom OG</h2>
+      <h4>OG Larry's Custom Work</h4>
+    </div>
+  </div>
 </div>
 
 <div class="productContainer">
   <div class="row">
     <div class="col-md-4" *ngFor="let tray of trays">
-      <product-thumbnail [tray]="tray"></product-thumbnail>
+      <product-thumbnail *ngIf="tray.showTray" [tray]="tray"></product-thumbnail>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="customRequest">
+      <h3>Want your own custom tray?</h3>
+      <div>
+        <button class="btn btn-dark btn-lg" (click)="requestCustomTray()">
+          Create Your Own Custom Tray
+        </button>
+      </div>
     </div>
   </div>
 </div>

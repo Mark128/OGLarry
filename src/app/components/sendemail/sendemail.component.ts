@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/Services/firebase.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -36,6 +37,17 @@ export class SendemailComponent implements OnInit {
       subject: ['', [Validators.required]],
       text: ['', [Validators.required]]
     });
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+
+    if (!this.contactForm.dirty) {
+      return true;
+    }
+
+    const confirm = window.confirm('Are you sure you want to leave?');
+
+    return confirm;
   }
 
   cancel() {

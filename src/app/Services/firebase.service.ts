@@ -62,6 +62,14 @@ export class FirebaseService {
   oneOff: Observable<ITray[]>;
   oneOffDoc: Observable<ITray[]>;
 
+  // Wood Types
+  woodTypesCollection: AngularFirestoreCollection<any>;
+  woodTypes: Observable<any>;
+
+  // Image Links
+  imageLinksCollection: AngularFirestoreCollection<any>;
+  imageLinks: Observable<any>;
+
   // File Uploads
   private basePath = '/CustomLogoRequests';
   public logoURL;
@@ -169,6 +177,20 @@ export class FirebaseService {
     });
 
     return this.oneOffsCollection.snapshotChanges();
+  }
+
+  // Wood Types
+  getWoodTypes() {
+    this.woodTypesCollection = this.afs.collection('WoodTypes');
+    this.woodTypes = this.woodTypesCollection.valueChanges();
+    return this.woodTypes;
+  }
+
+  // Image Links
+  getImageLinks() {
+    this.imageLinksCollection = this.afs.collection('ImageLinks');
+    this.imageLinks = this.imageLinksCollection.valueChanges();
+    return this.imageLinks;
   }
 
   // File Upload

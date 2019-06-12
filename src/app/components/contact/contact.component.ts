@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FileUpload } from 'src/app/data/FileUpload';
 import { FirebaseService } from 'src/app/Services/firebase.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
 // tslint:disable-next-line: component-selector
@@ -16,12 +17,7 @@ export class ContactComponent implements OnInit {
   contactForm;
   isTextChecked = false;
   isLogoChecked = false;
-  woodTypes = [
-    'oak',
-    'spruce',
-    'olive wood',
-    'birch'
-  ];
+  woodTypes = [];
 
   // File Upload
   selectedFiles: FileList;
@@ -42,6 +38,10 @@ export class ContactComponent implements OnInit {
       trayLogoRequested: [false],
       trayLogo: [''],
       submissionDate: [new Date(Date.now())]
+    });
+
+    this.firebase.getWoodTypes().subscribe( woodData => {
+      this.woodTypes = woodData[0].woodTypes;
     });
   }
 
@@ -73,6 +73,17 @@ export class ContactComponent implements OnInit {
     }
 
     this.firebase.addCustomTrayRequest(contactDetails);
+  }
+
+  canDeactivate(): Observable<boolean> | boolean {
+
+    if (!this.contactForm.dirty) {
+      return true;
+    }
+
+    const confirm = window.confirm('Are you sure you want to leave?');
+
+    return confirm;
   }
 
   cancel() {

@@ -7,14 +7,14 @@
   <div class="row">
 
     <!--Grid column-->
-    <div *ngFor="let image of images" class="col-lg-4 col-md-6 mb-4">
-        <h4 class="linkText">{{image?.caption}}</h4>
+    <div *ngFor="let link of imageLinks" class="col-lg-4 col-md-6 mb-4">
+        <h4 class="linkText">{{link?.caption}}</h4>
       <!--Collection card-->
-      <mdb-card class="collection-card z-depth-1-half" [routerLink]="image?.link">
+      <mdb-card class="collection-card z-depth-1-half" [routerLink]="link?.link">
 
         <!--Card image-->
         <div class="view zoom waves-light" mdbWavesEffect>
-          <mdb-card-img [src]="image?.src" [alt]="image?.caption"></mdb-card-img>
+          <mdb-card-img [src]="link?.image" [alt]="link?.caption"></mdb-card-img>
 
         </div>
         <!--Card image-->
