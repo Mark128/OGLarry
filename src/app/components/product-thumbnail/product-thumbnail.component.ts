@@ -17,6 +17,6 @@ export class ProductThumbnailComponent implements OnInit {
   }
 
   goToDetailPage() {
-    this.router.navigate(['/TrayDetail', this.tray.name]);
+    this.router.navigate(['/TrayDetail', `${this.tray.category}-${this.tray.name}`]);
   }
 }

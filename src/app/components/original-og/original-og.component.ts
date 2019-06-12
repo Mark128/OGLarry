@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/Services/firebase.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +13,10 @@ export class OriginalOGComponent implements OnInit {
 
   trays;
 
-  constructor(private fb: FirebaseService) { }
+  constructor(private fb: FirebaseService, private router: Router) { }
 
   ngOnInit() {
+    console.log(this.router.url);
     this.fb.getOriginalTrays().subscribe( trayData => {
       this.trays = trayData;
     });

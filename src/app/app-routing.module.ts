@@ -10,6 +10,7 @@ import { TrayDetailComponent } from './components/tray-detail/tray-detail.compon
 import { OneOffComponent } from './components/oneOff/oneOff.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
+import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path: 'CustomContact', component: ContactComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
   {path: 'ContactOGLarry', component: SendemailComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
   {path: '1OFF', component: OneOffComponent},
-  {path: 'TrayDetail/:name', component: TrayDetailComponent},
+  {path: 'TrayDetail/:name', component: TrayDetailComponent, resolve: {tray: TrayDetailResolverService}},
   {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}
 ];
 

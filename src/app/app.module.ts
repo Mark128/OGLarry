@@ -25,6 +25,7 @@ import { FirebaseModule } from './firebase/firebase.module';
 import { OneOffComponent } from './components/oneOff/oneOff.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { HttpClientModule } from '@angular/common/http';
     MDBBootstrapModule.forRoot(),
     SlickModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    TrayDetailResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
