@@ -26,6 +26,7 @@ import { OneOffComponent } from './components/oneOff/oneOff.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
+import { TrayListResolverService } from './Services/tray-list-resolver.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TrayDetailResolverService } from './Services/tray-detail-resolver.servi
     SlickModule.forRoot()
   ],
   providers: [
-    TrayDetailResolverService
+    TrayDetailResolverService,
+    TrayListResolverService
   ],
   bootstrap: [AppComponent]
 })

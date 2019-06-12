@@ -11,17 +11,18 @@ import { OneOffComponent } from './components/oneOff/oneOff.component';
 import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
 import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
+import { TrayListResolverService } from './Services/tray-list-resolver.service';
 
 
 const routes: Routes = [
   {path: 'OGLarryDesigns', component: HomeComponent},
-  {path: 'OriginalOG', component: OriginalOGComponent},
-  {path: 'MiniOG', component: MiniOGComponent},
-  {path: 'OGAshtrays', component: AshtraysComponent},
-  {path: 'CustomOG', component: CustomComponent},
+  {path: 'OriginalOG', component: OriginalOGComponent, resolve: {trays: TrayListResolverService}},
+  {path: 'MiniOG', component: MiniOGComponent, resolve: {trays: TrayListResolverService}},
+  {path: 'OGAshtrays', component: AshtraysComponent, resolve: {trays: TrayListResolverService}},
+  {path: 'CustomOG', component: CustomComponent, resolve: {trays: TrayListResolverService}},
   {path: 'CustomContact', component: ContactComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
   {path: 'ContactOGLarry', component: SendemailComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
-  {path: '1OFF', component: OneOffComponent},
+  {path: '1OFF', component: OneOffComponent, resolve: {trays: TrayListResolverService}},
   {path: 'TrayDetail/:name', component: TrayDetailComponent, resolve: {tray: TrayDetailResolverService}},
   {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}
 ];
