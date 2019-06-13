@@ -70,6 +70,10 @@ export class FirebaseService {
   imageLinksCollection: AngularFirestoreCollection<any>;
   imageLinks: Observable<any>;
 
+  // PayPal
+  payPalCollection: AngularFirestoreCollection<any>;
+  payPal: Observable<any>;
+
   // File Uploads
   private basePath = '/CustomLogoRequests';
   public logoURL;
@@ -191,6 +195,13 @@ export class FirebaseService {
     this.imageLinksCollection = this.afs.collection('ImageLinks');
     this.imageLinks = this.imageLinksCollection.valueChanges();
     return this.imageLinks;
+  }
+
+  // PayPal
+  getPayPalConfigs() {
+    this.payPalCollection = this.afs.collection('PayPal');
+    this.payPal = this.payPalCollection.valueChanges();
+    return this.payPal;
   }
 
   // File Upload

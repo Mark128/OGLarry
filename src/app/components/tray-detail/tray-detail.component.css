@@ -52,3 +52,7 @@
   margin-right: 25px;
 }
 
+#PayPalCheckoutButton{
+  width: 100%;
+  height:100%;
+}
