@@ -18,6 +18,14 @@
       {
         "source": "https://us-central1-oglarry.cloudfunctions.net/httpEmail",
         "function": "httpEmail"
+      },
+      {
+        "source": "https://us-central1-oglarry.cloudfunctions.net/pay",
+        "function": "pay"
+      },
+      {
+        "source": "https://us-central1-oglarry.cloudfunctions.net/process",
+        "function": "process"
       }
     ]
   },

@@ -13,13 +13,6 @@ import { FileUpload } from '../data/FileUpload';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  }),
-  observe: 'response' as 'body'
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -250,7 +243,6 @@ export class FirebaseService {
     emailHeaders.append('Content-Type', 'application/json');
     emailHeaders.append('Access-Control-Allow-Origin', '*');
 
-    console.log(emailInput.value);
 
     emailParams.set('to', 'm_antoniadis@live.com');
     emailParams.set('from', emailInput.value.email);
@@ -272,8 +264,6 @@ export class FirebaseService {
       </html>`
     };
 
-    console.log(emailParams.getAll);
-
     return this.http.post(url, body, {
         headers: emailHeaders,
         params: emailParams
@@ -286,4 +276,38 @@ export class FirebaseService {
         console.log(err);
       });
   }
+
+  // Emailer
+  purchaseTray(inputPrice) {
+
+    const url = 'https://us-central1-oglarry.cloudfunctions.net/pay';
+    const payParams = new HttpParams();
+    const payHeaders = new HttpHeaders();
+    payHeaders.append('Content-Type', 'application/json');
+    payHeaders.append('Access-Control-Allow-Origin', '*');
+
+    payHeaders.set('price', '5');
+
+
+    const body = {
+      uid: 1,
+      price: inputPrice
+    };
+
+    return this.http.post(url, body, {
+        headers: payHeaders,
+        params: payParams
+      }).subscribe( res => {
+        console.log(res);
+        document.location.href = res.toString();
+      });
+  }
 }
+
+
+
+
+
+
+
+

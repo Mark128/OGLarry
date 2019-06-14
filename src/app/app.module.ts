@@ -27,6 +27,7 @@ import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
 import { TrayListResolverService } from './Services/tray-list-resolver.service';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TrayListResolverService } from './Services/tray-list-resolver.service';
     TrayDetailComponent,
     ProductThumbnailComponent,
     OneOffComponent,
-    SendemailComponent
+    SendemailComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,

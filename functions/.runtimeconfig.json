@@ -1,0 +1,13 @@
+{
+  "paypal": {
+    "sandbox_client_secret": "EPl7h31UZ4gR6CrZSrACM-IvxVb2hBpMxp-2EHx19nT2xHjr8QS4NKU5toJ2h9yLDoXp9dTpF7a3vqj5",
+    "sandbox_client_id": "AWnXmHI-yDFFMJzvqOtBrvHmVhUVCjUiqlH2n03nh2zErDStZ7DSoDIn6rElk82UPllAzb6ChYeNzCn-"
+  },
+  "gmail": {
+    "email": "markantoniadis@gmail.com",
+    "password": "Itei28"
+  },
+  "sendgrid": {
+    "key": "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"
+  }
+}

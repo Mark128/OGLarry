@@ -43,8 +43,12 @@
   </ul>
   <div class="card-body">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <div id="PayPalCheckoutButton" (click)="setConfigs()"></div>
+      <div class="col-md-4 mx-auto">
+        <button class="btn btn-light btn-lg" (click)="purchaseTray(tray)">
+          Purchase Tray
+          <fa name="cc-paypal" size="4x"></fa>
+        </button>
+        <!--<div id="PayPalCheckoutButton"></div>-->
       </div>
     </div>
   </div>

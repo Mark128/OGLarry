@@ -12,6 +12,7 @@ import { SendemailComponent } from './components/sendemail/sendemail.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
 import { TrayDetailResolverService } from './Services/tray-detail-resolver.service';
 import { TrayListResolverService } from './Services/tray-list-resolver.service';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'ContactOGLarry', component: SendemailComponent, pathMatch: 'full', canDeactivate: [CanDeactivateGuard]},
   {path: '1OFF', component: OneOffComponent, resolve: {trays: TrayListResolverService}},
   {path: 'TrayDetail/:name', component: TrayDetailComponent, resolve: {tray: TrayDetailResolverService}},
+  {path: 'PaymentConfirmation', component: PaymentSuccessComponent},
   {path: '', redirectTo: '/OGLarryDesigns', pathMatch: 'full'}
 ];
 

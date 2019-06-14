@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ITray } from 'src/app/data/tray';
 import { PaymentService } from 'src/app/Services/payment.service';
+import { FirebaseService } from 'src/app/Services/firebase.service';
 
 declare var paypal;
 
@@ -12,11 +13,11 @@ declare var paypal;
   templateUrl: './tray-detail.component.html',
   styleUrls: ['./tray-detail.component.css']
 })
-export class TrayDetailComponent implements OnInit, AfterViewChecked {
+export class TrayDetailComponent implements OnInit {
   tray;
   priceLabel = ' Price';
 
-  constructor(private route: ActivatedRoute, private payment: PaymentService) {}
+  constructor(private route: ActivatedRoute, private payment: PaymentService, private fb: FirebaseService) {}
 
   ngOnInit() {
     this.route.data.subscribe((data: {tray: ITray}) => {
@@ -26,16 +27,17 @@ export class TrayDetailComponent implements OnInit, AfterViewChecked {
     this.payment.setPaymentAmount(this.tray.price);
   }
 
-  ngAfterViewChecked(): void {
+  /*ngAfterViewChecked(): void {
     if (!this.payment.addScript) {
       this.payment.addPayPalScript().then(() => {
         paypal.Button.render(this.payment.payPalConfig, '#PayPalCheckoutButton');
         this.payment.payPalLoad = false;
       });
     }
+  }*/
+
+  purchaseTray(tray) {
+    this.fb.purchaseTray(tray.price);
   }
 
-  setConfigs() {
-    console.log('setting configs');
-  }
 }
